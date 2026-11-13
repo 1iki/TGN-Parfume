@@ -22,3 +22,4 @@ foreach ($storagePaths as $path) {
 
 // Forward execution to Laravel public entrypoint
 require __DIR__ . '/../public/index.php';
+

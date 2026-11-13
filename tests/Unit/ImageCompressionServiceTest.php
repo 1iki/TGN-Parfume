@@ -151,3 +151,4 @@ class ImageCompressionServiceTest extends TestCase
         $this->assertFileDoesNotExist($this->tempDir . DIRECTORY_SEPARATOR . 'img_test_exceed.jpg');
     }
 }
+

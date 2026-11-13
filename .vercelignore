@@ -13,4 +13,6 @@ phpunit.xml
 /storage/framework/sessions/*
 .phpunit.result.cache
 check-white.mjs
+/bootstrap/cache/*.php
 run_visual_parity_suite.js
+*.map

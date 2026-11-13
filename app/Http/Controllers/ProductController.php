@@ -12,10 +12,14 @@ class ProductController extends Controller
         $request = $request ?? request();
         $category = $request->query('category');
 
-        if ($category) {
-            $products = Product::where('categories', strtolower($category))->get();
-        } else {
-            $products = Product::all();
+        try {
+            if ($category) {
+                $products = Product::where('categories', strtolower($category))->get();
+            } else {
+                $products = Product::all();
+            }
+        } catch (\Throwable $e) {
+            $products = collect();
         }
 
         return view('products.index', compact('products', 'category'));

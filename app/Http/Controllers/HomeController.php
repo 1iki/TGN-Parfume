@@ -9,9 +9,15 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $maleProducts = Product::where('categories', 'male')->take(6)->get();
-        $femaleProducts = Product::where('categories', 'female')->take(6)->get();
-        $latestProducts = Product::latest()->take(8)->get();
+        try {
+            $maleProducts = Product::where('categories', 'male')->take(6)->get();
+            $femaleProducts = Product::where('categories', 'female')->take(6)->get();
+            $latestProducts = Product::latest()->take(8)->get();
+        } catch (\Throwable $e) {
+            $maleProducts = collect();
+            $femaleProducts = collect();
+            $latestProducts = collect();
+        }
 
         return view('home', compact('maleProducts', 'femaleProducts', 'latestProducts'));
     }

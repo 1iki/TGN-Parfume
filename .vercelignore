@@ -3,6 +3,14 @@
 /.git
 /tests
 .env
-.env.backup
-.env.production
+.env.*
 phpunit.xml
+/.impeccable
+/docs
+/storage/logs/*
+/storage/framework/views/*
+/storage/framework/cache/*
+/storage/framework/sessions/*
+.phpunit.result.cache
+check-white.mjs
+run_visual_parity_suite.js

@@ -1,0 +1,401 @@
+/* ==========================================================================
+   TGN Parfume — Shared White Theme Layer
+   Provides a consistent, elegant WHITE theme across the entire application
+   (all storefront views and admin back-office views).
+
+   Palette:
+   - Primary Canvas: #ffffff (pure white)
+   - Soft Canvas:    #f8f9fa (light warm/neutral grey for sections & panels)
+   - Hairline Line:  rgba(28, 25, 23, 0.1) (#e2e8f0)
+   - Ink Text:       #1c1917 (deep warm charcoal for headings & primary text)
+   - Neutral Ink:    #57534e (secondary body text)
+   - Muted Text:     #78716c / #94a3b8
+   
+   Accents:
+   - Storefront Red: #aa0000 (hover #8b0000) — primary CTA & brand highlight
+   - Luxury Gold:    #9B7A3E (fill #e3b04b)  — admin primary & price highlights
+   ========================================================================== */
+
+:root {
+  --tgn-canvas: #ffffff;
+  --tgn-canvas-soft: #f8f9fa;
+  --tgn-line: rgba(28, 25, 23, 0.1);
+  --tgn-line-subtle: rgba(28, 25, 23, 0.06);
+  --tgn-muted: #78716c;
+  --tgn-ink: #1c1917;
+  --tgn-ink-secondary: #57534e;
+
+  /* Storefront accents (default) */
+  --tgn-accent: #aa0000;
+  --tgn-accent-strong: #8b0000;
+  --tgn-btn: #aa0000;
+  --tgn-btn-hover: #8b0000;
+  --tgn-gold: #9B7A3E;            /* text-safe gold on white */
+  --tgn-gold-fill: #e3b04b;       /* premium fill (prices, highlights) */
+
+  /* Bootstrap token alignment */
+  --bs-warning: #9B7A3E;
+  --bs-warning-rgb: 155, 122, 62;
+  --bs-primary: #aa0000;
+  --bs-primary-rgb: 170, 0, 0;
+  --bs-body-bg: #ffffff;
+  --bs-body-color: #1c1917;
+}
+
+/* ------------------------------------------------------------- typography */
+.font-heading { font-family: 'Poppins', 'Nunito', sans-serif; }
+.fw-extrabold { font-weight: 800; }
+.text-xs { font-size: 0.75rem; line-height: 1.25rem; }
+.leading-relaxed { line-height: 1.625; }
+
+/* --------------------------------------------------------------- neutrals */
+.text-slate-300 { color: #57534e !important; }
+.text-slate-400 { color: var(--tgn-muted) !important; }
+.text-slate-500 { color: #94a3b8 !important; }
+.text-ink { color: var(--tgn-ink) !important; }
+.text-ink-secondary { color: var(--tgn-ink-secondary) !important; }
+
+/* ---------------------------------------------------------- brand accents */
+.text-accent { color: var(--tgn-accent) !important; }
+.text-gold { color: var(--tgn-gold) !important; }
+
+/* ------------------------------------------------------------ solid CTA */
+.btn-gradient {
+  background: var(--tgn-btn);
+  border: 0;
+  color: #fff !important;
+  box-shadow: 0 4px 14px rgba(170, 0, 0, 0.22);
+  transition: all 0.25s ease;
+}
+.btn-gradient:hover, .btn-gradient:focus-visible {
+  background: var(--tgn-btn-hover);
+  color: #fff !important;
+  box-shadow: 0 6px 18px rgba(170, 0, 0, 0.3);
+  transform: translateY(-1px);
+}
+.btn-gradient:disabled {
+  opacity: 0.65;
+  transform: none;
+  box-shadow: none;
+}
+
+.btn-register {
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  padding: 10px 32px;
+  border-radius: 50px;
+  transition: 0.3s ease;
+  color: #fff !important;
+  background: var(--tgn-btn);
+  border: none;
+  box-shadow: 0 4px 14px rgba(170, 0, 0, 0.2);
+}
+.btn-register:hover {
+  background: var(--tgn-btn-hover);
+  color: #fff !important;
+  box-shadow: 0 6px 18px rgba(170, 0, 0, 0.28);
+  transform: translateY(-1px);
+}
+
+/* ------------------------------------------------------------- white cards */
+.stat-card {
+  background: var(--tgn-canvas);
+  border: 1px solid var(--tgn-line);
+  border-radius: 14px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+  color: var(--tgn-ink);
+}
+
+.glass-card {
+  background: var(--tgn-canvas);
+  border: 1px solid var(--tgn-line);
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.04);
+  color: var(--tgn-ink);
+}
+
+.card {
+  background-color: var(--tgn-canvas);
+  border-color: var(--tgn-line);
+  color: var(--tgn-ink);
+}
+
+/* --------------------------------------------------------- small helpers */
+.hover-zoom { overflow: hidden; border-radius: 0.25rem; }
+.hover-zoom img { transition: transform 0.3s ease-out; }
+.hover-zoom:hover img { transform: scale(1.06); }
+
+.btn-outline-custom {
+  border: 1px solid var(--tgn-line);
+  color: var(--tgn-ink);
+  background: var(--tgn-canvas);
+  transition: all 0.2s ease;
+}
+.btn-outline-custom:hover {
+  border-color: var(--tgn-accent);
+  color: var(--tgn-accent);
+  background: rgba(170, 0, 0, 0.04);
+}
+
+.empty {
+  padding: 3rem 1rem;
+  text-align: center;
+  color: var(--tgn-muted);
+}
+
+/* ----------------------------------------------- product category badges */
+.badge-category {
+  background: rgba(155, 122, 62, 0.12);
+  color: var(--tgn-gold) !important;
+  border: 1px solid rgba(155, 122, 62, 0.35);
+  font-weight: 600;
+}
+.badge-female {
+  background: rgba(170, 0, 0, 0.08);
+  color: var(--tgn-accent) !important;
+  border: 1px solid rgba(170, 0, 0, 0.3);
+  font-weight: 600;
+}
+
+/* ------------------------------------------------------------- white page
+   Storefront sub-pages render on clean white canvas. */
+.tgn-page {
+  background: var(--tgn-canvas);
+  color: var(--tgn-ink);
+  padding: 6.5rem 0 3.5rem;
+  min-height: calc(100vh - 280px);
+}
+
+.tgn-home {
+  background: var(--tgn-canvas);
+  color: var(--tgn-ink);
+}
+
+/* Clean section background */
+.section-bg {
+  background-color: var(--tgn-canvas-soft) !important;
+}
+
+/* Clean Breadcrumbs */
+.breadcrumbs {
+  padding: 1.25rem 0 !important;
+  background: var(--tgn-canvas-soft) !important;
+  border-bottom: 1px solid var(--tgn-line);
+  margin-top: 0 !important;
+  margin-bottom: 2rem;
+}
+.breadcrumbs h2 {
+  font-size: 1.5rem !important;
+  font-weight: 700 !important;
+  color: var(--tgn-ink) !important;
+  margin: 0;
+}
+.breadcrumbs ol {
+  margin: 0;
+  padding: 0;
+}
+.breadcrumbs ol li a {
+  color: var(--tgn-muted) !important;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.breadcrumbs ol li a:hover {
+  color: var(--tgn-accent) !important;
+}
+.breadcrumbs ol li.active,
+.breadcrumbs ol li:last-child {
+  color: var(--tgn-accent) !important;
+  font-weight: 600;
+}
+
+/* --------------------------------------------------- forms & inputs */
+.form-control, .form-select {
+  background-color: var(--tgn-canvas);
+  color: var(--tgn-ink);
+  border: 1px solid rgba(28, 25, 23, 0.18);
+  border-radius: 8px;
+  padding: 0.625rem 0.875rem;
+}
+.form-control:focus, .form-select:focus {
+  background-color: var(--tgn-canvas);
+  color: var(--tgn-ink);
+  border-color: rgba(170, 0, 0, 0.45);
+  box-shadow: 0 0 0 0.2rem rgba(170, 0, 0, 0.1);
+}
+.form-control::placeholder {
+  color: #94a3b8;
+}
+
+/* Modals */
+.modal-content {
+  background-color: var(--tgn-canvas) !important;
+  color: var(--tgn-ink) !important;
+  border: 1px solid var(--tgn-line) !important;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12) !important;
+  border-radius: 16px !important;
+}
+.modal-header {
+  border-bottom: 1px solid var(--tgn-line) !important;
+}
+.modal-footer {
+  border-top: 1px solid var(--tgn-line) !important;
+}
+.btn-close-white {
+  filter: none !important;
+}
+
+/* Tables */
+.table {
+  color: var(--tgn-ink);
+}
+.table > :not(caption) > * > * {
+  background-color: transparent;
+  border-bottom-color: var(--tgn-line);
+  color: var(--tgn-ink);
+}
+.table-hover > tbody > tr:hover > * {
+  background-color: rgba(0, 0, 0, 0.02) !important;
+}
+
+/* --------------------------------------------------- dark classes sanitization
+   Views previously authored with Bootstrap dark utilities are re-themed to
+   clean white & ink neutrals. */
+.tgn-page .text-white,
+.tgn-admin #main .text-white,
+.tgn-home .text-white {
+  color: var(--tgn-ink) !important;
+}
+
+.tgn-page .bg-dark,
+.tgn-admin #main .bg-dark,
+.tgn-home .bg-dark {
+  background-color: var(--tgn-canvas-soft) !important;
+}
+
+.tgn-page .border-secondary,
+.tgn-admin #main .border-secondary,
+.tgn-home .border-secondary {
+  border-color: var(--tgn-line) !important;
+}
+
+.tgn-page .form-control.bg-dark,
+.tgn-page .form-select.bg-dark,
+.tgn-admin #main .form-control.bg-dark,
+.tgn-admin #main .form-select.bg-dark {
+  background-color: var(--tgn-canvas) !important;
+  color: var(--tgn-ink) !important;
+  border-color: rgba(28, 25, 23, 0.18) !important;
+}
+
+/* Category chips */
+.tgn-page .btn-dark {
+  --bs-btn-bg: var(--tgn-canvas);
+  --bs-btn-border-color: var(--tgn-line);
+  --bs-btn-color: var(--tgn-muted);
+  --bs-btn-hover-bg: var(--tgn-canvas-soft);
+  --bs-btn-hover-color: var(--tgn-accent);
+  --bs-btn-hover-border-color: var(--tgn-accent);
+}
+
+/* ------------------------------------------------------- admin gold main */
+.tgn-admin {
+  --tgn-accent: #9B7A3E;
+  --tgn-accent-strong: #7d5f2e;
+  --tgn-btn: #9B7A3E;
+  --tgn-btn-hover: #7d5f2e;
+  --bs-primary: #9B7A3E;
+  --bs-primary-rgb: 155, 122, 62;
+}
+
+.tgn-admin #main {
+  background: var(--tgn-canvas-soft);
+  color: var(--tgn-ink);
+  min-height: calc(100vh - 120px);
+}
+
+.tgn-admin .sidebar {
+  background-color: var(--tgn-canvas) !important;
+  border-right: 1px solid var(--tgn-line) !important;
+  box-shadow: 2px 0 12px rgba(0, 0, 0, 0.03) !important;
+}
+
+.tgn-admin .header {
+  background-color: var(--tgn-canvas) !important;
+  border-bottom: 1px solid var(--tgn-line) !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04) !important;
+}
+
+.tgn-admin .footer {
+  background-color: var(--tgn-canvas) !important;
+  border-top: 1px solid var(--tgn-line) !important;
+}
+
+.tgn-admin .btn-primary {
+  --bs-btn-bg: var(--tgn-btn);
+  --bs-btn-border-color: var(--tgn-btn);
+  --bs-btn-hover-bg: var(--tgn-btn-hover);
+  --bs-btn-hover-border-color: var(--tgn-btn-hover);
+  --bs-btn-focus-shadow-rgb: 155, 122, 62;
+}
+.tgn-admin .btn-outline-primary {
+  --bs-btn-color: var(--tgn-accent);
+  --bs-btn-border-color: var(--tgn-accent);
+  --bs-btn-hover-bg: var(--tgn-btn);
+  --bs-btn-hover-border-color: var(--tgn-btn);
+  --bs-btn-focus-shadow-rgb: 155, 122, 62;
+}
+
+.tgn-admin .form-control:focus, .tgn-admin .form-select:focus {
+  border-color: rgba(155, 122, 62, 0.5);
+  box-shadow: 0 0 0 0.2rem rgba(155, 122, 62, 0.12);
+}
+
+/* ------------------------------------------------- browser-surface theming */
+.tgn-page ::selection { background: rgba(170, 0, 0, 0.15); color: var(--tgn-ink); }
+.tgn-admin #main ::selection { background: rgba(155, 122, 62, 0.2); color: var(--tgn-ink); }
+.tgn-page :focus-visible,
+.tgn-admin :focus-visible {
+  outline: 2px solid var(--tgn-accent);
+  outline-offset: 2px;
+}
+
+/* --------------------------------------------- storefront shell (tgn-store) */
+.tgn-store {
+  background-color: var(--tgn-canvas);
+  color: var(--tgn-ink);
+}
+
+.tgn-store .header {
+  background: var(--tgn-canvas);
+  border-bottom: 1px solid var(--tgn-line);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+}
+.tgn-store .header.sticked {
+  border-color: var(--tgn-line);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+.tgn-store .navbar a,
+.tgn-store .navbar a:focus { color: #57534e; }
+.tgn-store .navbar a:hover,
+.tgn-store .navbar .active,
+.tgn-store .navbar .active:focus,
+.tgn-store .navbar li:hover > a { color: var(--tgn-ink); }
+.tgn-store .bilek { color: var(--tgn-gold); }
+
+.tgn-store .footer {
+  background: var(--tgn-canvas-soft);
+  color: #57534e;
+  border-top: 1px solid var(--tgn-line);
+}
+.tgn-store .footer h4 { color: var(--tgn-ink); }
+.tgn-store .footer .icon { color: var(--tgn-accent); }
+.tgn-store .footer .footer-links ul a { color: #57534e; }
+.tgn-store .footer .footer-links ul a:hover { color: var(--tgn-accent); }
+.tgn-store .footer .social-links a { color: #57534e; border-color: var(--tgn-line); }
+.tgn-store .footer .social-links a:hover { color: var(--tgn-accent); border-color: var(--tgn-accent); }
+.tgn-store .footer .copyright { border-top: 1px solid var(--tgn-line); color: var(--tgn-muted); }
+.tgn-store .footer .credits a { color: var(--tgn-ink); font-weight: 600; }
+.tgn-store .mobile-nav-show { color: var(--tgn-accent); }

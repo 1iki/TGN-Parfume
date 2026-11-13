@@ -9,8 +9,12 @@
   },
   "routes": [
     {
-      "src": "/(assets|css|js|images|uploaded_img|Admin|build)/(.*)",
+      "src": "/(assets|css|js|images|uploaded_img|build)/(.*)",
       "dest": "/public/$1/$2"
+    },
+    {
+      "src": "/Admin/assets/(.*)",
+      "dest": "/public/Admin/assets/$1"
     },
     {
       "src": "/favicon.ico",

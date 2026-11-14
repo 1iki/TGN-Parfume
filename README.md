@@ -1,5 +1,9 @@
 # TGN Parfume
 
+<p align="center">
+  <img src="public/images/thumbnail-showcase.jpg" alt="TGN Parfume Showcase Thumbnail" width="100%">
+</p>
+
 TGN Parfume adalah aplikasi web e-commerce parfum modern yang dibangun menggunakan **Laravel 12**, **MongoDB**, dan **Bootstrap 5**. Aplikasi ini merupakan hasil modernisasi menyeluruh dari sistem PHP legacy dengan arsitektur MVC, tema visual konsisten (white theme), kompresi gambar tanpa penurunan kualitas pixel, dan kesesuaian endpoint (backward compatibility).
 
 ---
